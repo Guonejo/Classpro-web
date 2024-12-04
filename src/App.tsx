@@ -72,18 +72,18 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Zap className="w-8 h-8 text-purple-500" />,
-                title: "Rápido como un rayo",
+                icon: <Zap className="w-8 h-8 text-purple-500" />, 
+                title: "Rápido como un rayo", 
                 description: "Optimizado para una experiencia ágil en la gestión de tus clases"
               },
               {
-                icon: <Shield className="w-8 h-8 text-purple-500" />,
-                title: "Seguro y privado",
+                icon: <Shield className="w-8 h-8 text-purple-500" />, 
+                title: "Seguro y privado", 
                 description: "Tus datos están protegidos con seguridad de nivel empresarial"
               },
               {
-                icon: <Smartphone className="w-8 h-8 text-purple-500" />,
-                title: "Fácil de usar",
+                icon: <Smartphone className="w-8 h-8 text-purple-500" />, 
+                title: "Fácil de usar", 
                 description: "Interfaz intuitiva diseñada para todos los estudiantes"
               }
             ].map((feature, index) => (
@@ -132,11 +132,12 @@ function App() {
           </p>
           <div className="flex justify-center gap-4">
             <a 
-              href="https://play.google.com"
+              href="/assets/ClassProAppv1.2.apk"
+              download="ClassProAppv1.2.apk"
               className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
               <Download className="w-6 h-6" />
-              Descargar aqui
+              Descargar APK
             </a>
           </div>
           <div className="mt-12 flex justify-center gap-8">
