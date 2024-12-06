@@ -13,7 +13,7 @@ import QRCode from 'react-qr-code'; // Importa la biblioteca react-qr-code
 
 function App() {
   // URL directa al archivo APK en GitHub
-  const apkUrl = "https://raw.githubusercontent.com/guonejo/classpro-web/src/assets/ClassProAppV1.2.apk";
+  const apkUrl = "https://raw.githubusercontent.com/guonejo/classpro-web/src/ClassProAppV1.2.apk";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
