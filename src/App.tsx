@@ -9,8 +9,11 @@ import {
   Github,
   Twitter
 } from 'lucide-react';
+import QRCode from 'react-qr-code'; // Importamos la biblioteca para el código QR
 
 function App() {
+  const apkUrl = "https://github.com/Guonejo/Classpro-web/raw/refs/heads/main/src/ClassProAppv1.2.apk";
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Hero Section */}
@@ -140,6 +143,18 @@ function App() {
               Descargar APK
             </a>
           </div>
+
+          {/* Mostrar QR solo en escritorio */}
+          <div className="hidden md:block mt-8">
+            <p className="text-gray-300 mb-4">Escanea el código QR para descargar la aplicación desde tu teléfono:</p>
+            <QRCode
+              value={apkUrl} // URL directa al archivo APK
+              size={200} // Tamaño del QR
+              bgColor="#ffffff" // Color de fondo
+              fgColor="#000000" // Color del QR
+            />
+          </div>
+
           <div className="mt-12 flex justify-center gap-8">
             <div className="flex items-center gap-2">
               <Star className="w-6 h-6 text-yellow-500" />
