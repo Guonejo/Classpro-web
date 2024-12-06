@@ -9,12 +9,8 @@ import {
   Github,
   Twitter
 } from 'lucide-react';
-import QRCode from 'react-qr-code'; // Importa la biblioteca react-qr-code
 
 function App() {
-  // URL directa al archivo APK en GitHub
-  const apkUrl = "https://raw.githubusercontent.com/guonejo/classpro-web/src/ClassProAppV1.2.apk";
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Hero Section */}
@@ -67,27 +63,76 @@ function App() {
         </div>
       </header>
 
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-gray-800/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            ¿Porqué escogernos?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Zap className="w-8 h-8 text-purple-500" />,
+                title: "Rápido como un rayo",
+                description: "Optimizado para una experiencia ágil en la gestión de tus clases"
+              },
+              {
+                icon: <Shield className="w-8 h-8 text-purple-500" />,
+                title: "Seguro y privado",
+                description: "Tus datos están protegidos con seguridad de nivel empresarial"
+              },
+              {
+                icon: <Smartphone className="w-8 h-8 text-purple-500" />,
+                title: "Fácil de usar",
+                description: "Interfaz intuitiva diseñada para todos los estudiantes"
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition-colors">
+                {feature.icon}
+                <h3 className="text-xl font-semibold mt-4 mb-2">{feature.title}</h3>
+                <p className="text-gray-400">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Screenshots Section */}
+      <section id="screenshots" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            App Screenshots
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&q=80",
+              "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80"
+            ].map((screenshot, index) => (
+              <div key={index} className="rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                <img 
+                  src={screenshot} 
+                  alt={`App Screenshot ${index + 1}`}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Download Section */}
       <section id="download" className="py-20 bg-gray-800/50">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Descarga nuestra app
+            Comienza hoy.
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Escanea el código QR con tu teléfono para descargar la APK directamente.
+            Únete a miles de estudiantes satisfechos y descarga nuestra app hoy mismo.
           </p>
-          <div className="flex justify-center">
-            {/* Genera el QR Code */}
-            <QRCode
-              value={apkUrl} // URL directa al archivo APK
-              size={200} // Tamaño del QR
-              bgColor="#ffffff" // Color de fondo
-              fgColor="#000000" // Color del QR
-            />
-          </div>
-          <div className="mt-6">
+          <div className="flex justify-center gap-4">
             <a 
-              href={apkUrl} 
+              href="/assets/ClassProAppV1.2.apk" 
               download="ClassProAppV1.2.apk" 
               className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
@@ -95,8 +140,43 @@ function App() {
               Descargar APK
             </a>
           </div>
+          <div className="mt-12 flex justify-center gap-8">
+            <div className="flex items-center gap-2">
+              <Star className="w-6 h-6 text-yellow-500" />
+              <span className="text-2xl font-bold">4.8</span>
+              <span className="text-gray-400">Rating</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Download className="w-6 h-6 text-green-500" />
+              <span className="text-2xl font-bold">100K+</span>
+              <span className="text-gray-400">Downloads</span>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Smartphone className="w-6 h-6 text-purple-500" />
+              <span className="font-bold">ClassPro</span>
+            </div>
+            <div className="flex gap-6">
+              <a href="https://github.com" className="hover:text-purple-400 transition-colors">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="https://twitter.com" className="hover:text-purple-400 transition-colors">
+                <Twitter className="w-6 h-6" />
+              </a>
+            </div>
+            <div className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} ClassPro dev. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
